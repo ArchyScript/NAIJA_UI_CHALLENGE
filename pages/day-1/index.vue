@@ -1,5 +1,9 @@
 <template>
-  <Tutorial />
+  <div>
+    Day 1
+
+    <Tutorial />
+  </div>
 </template>
 
 <script lang="ts">
