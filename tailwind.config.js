@@ -12,9 +12,10 @@ module.exports = {
     },
     extend: {
       colors: {
-        'naija-ui-light': '1',
-        'naija-ui-main': '#eead58',
-        'naija-ui-semi-light': '#292b2b',
+        'cowry-light': '#f4f7fa',
+        'cowry-main': '#056dff',
+        'cowry-gray': '#adbacd',
+        'cowry-dark': '#0a2e65',
       },
       gridTemplateColumns: {
         // Simple 16 column grid

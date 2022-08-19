@@ -1,7 +1,5 @@
 <template>
-  <div class="container mx-auto bg-green-600">
-    <HomePage />
-  </div>
+  <HomePage />
 </template>
 
 <script lang="ts">
@@ -11,7 +9,7 @@ import HomePage from '~/components/HomePage/index.vue'
 
 export default {
   name: 'IndexPage',
-  layout: 'default',
+  layout: 'landing',
   components: { VTypical, HomePage },
   setup() {
     const steps = ref([

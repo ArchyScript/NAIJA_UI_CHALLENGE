@@ -1,13 +1,12 @@
 <template>
   <div>
-    <LayoutsDefault />
     <Nuxt />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TestLayout',
+  name: 'LandingPageLayout',
 }
 </script>
 

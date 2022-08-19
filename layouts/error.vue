@@ -10,6 +10,9 @@
 export default {
   name: 'EmptyLayout',
   layout: 'test',
+  head: {
+    title: 'Page not found',
+  },
   setup() {
     return {}
   },

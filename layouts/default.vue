@@ -2,9 +2,7 @@
   <div class="">
     <BaseNavbar />
 
-    <div class="container bg-yellow-700 mx-auto">
-      <Nuxt />
-    </div>
+    <Nuxt />
 
     <BaseFooter />
   </div>

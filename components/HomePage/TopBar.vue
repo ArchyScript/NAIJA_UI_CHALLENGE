@@ -1,244 +1,306 @@
 <template>
-  <div class="">
-    <section id="hero" class="w-full pb-24">
-      <BaseSection>
-        <div
-          class="col-span-12 lg:col-span-6 mt-12 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left"
+  <nav
+    id="navbar"
+    :class="{ scrolled: !scrollShadowBoolean }"
+    class="w-full bg-white z-40 top-0 mb-4 py-2"
+  >
+    <div class="w-full container mx-auto flex justify-between items-center">
+      <div
+        class="w-full flex flex-1 relative px-6 mx-auto items-center justify-between py-4 space-x-8"
+      >
+        <div class="flex-shrink-0 flex items-center">
+          <img
+            :src="require('~/assets/img/cowrywise-full-logo.png')"
+            class="h-6 md:h-8 xl:h-9"
+            alt="Cowrywise Logo"
+          />
+        </div>
+
+        <div class="flex-1 px-8">
+          <ul
+            class="w-full h-auto flex items-center space-x-2 pb-4 lg:pb-0 lg:flex-row origin-top duration-300 space-y-3 lg:space-y-0"
+          >
+            <li
+              class="relative flex-col"
+              v-for="nav_link in nav_links"
+              :key="nav_link.title"
+            >
+              <span
+                :class="
+                  active_dropdown_title === nav_link.title
+                    ? 'text-cowry-dark'
+                    : 'text-cowry-dark text-opacity-60'
+                "
+                class="px-4 py-2 text-cowry-dark hover:text-opacity-100 font-semibold text-base cursor-pointer"
+                @click="openDropdown(nav_link)"
+              >
+                {{ nav_link.title }}
+              </span>
+
+              <transition
+                v-if="
+                  nav_link.drop_down.section_1 &&
+                  nav_link.drop_down.section_1.length >= 1
+                "
+              >
+                <div
+                  v-if="active_dropdown_title === nav_link.title"
+                  :class="
+                    nav_link.drop_down.section_2 &&
+                    nav_link.drop_down.section_2.array_lists.length >= 1
+                      ? 'grid-cols-2'
+                      : 'grid-cols-1'
+                  "
+                  class="w-full grid gap-10 p-6 absolute bg-white z-20 min-w-max mt-5 rounded-lg lg:rounded-xl border-2 border-opacity-30 border-cowry-gray shadow-md -ml-20"
+                >
+                  <span
+                    class="hidden w-4 h-4 -mt-2 absolute bg-white z-10 ml-28 -translate-y-full rotate-45 border-2 border-opacity-30 border-cowry-gray"
+                  ></span>
+
+                  <div class="flex-col space-y-4">
+                    <a
+                      v-for="(section_1_drop_down, index) in nav_link.drop_down
+                        .section_1"
+                      :key="`${section_1_drop_down.title}_${index}`"
+                      class="items-center p-2 mb-2 flex flex-1 space-x-4 truncate text-cowry-dark hover:text-cowry-main text-opacity-80 cursor-pointer"
+                      :href="section_1_drop_down.link"
+                      target="_blank"
+                    >
+                      <div
+                        class="flex-shrink-0 bg-cowry-light truncate h-10 p-1 sm:h-12 sm:w-12 inline-flex rounded-full border border-cowry-gray cursor-pointer"
+                      >
+                        <img
+                          class="w-full h-full"
+                          :src="require('~/assets/img/cowrywise-logo.png')"
+                        />
+                      </div>
+
+                      <div class="truncate">
+                        <span class="block text-lg font-bold truncate mb-1">
+                          {{ section_1_drop_down.title }}
+                        </span>
+
+                        <span
+                          class="block text-base font-thin object-fill text-opacity-30 truncate"
+                        >
+                          {{ section_1_drop_down.description }}
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div
+                    :class="
+                      nav_link.drop_down.section_2 &&
+                      nav_link.drop_down.section_2.array_lists.length >= 1
+                        ? 'inline-block'
+                        : 'hidden'
+                    "
+                    class="border-l border-cowry-gray border-opacity-20 pl-10"
+                  >
+                    <h4
+                      class="block text-lg mb-4 font-semibold text-cowry-dark text-opacity-80 truncate"
+                    >
+                      {{ nav_link.drop_down.section_2.header }}
+                    </h4>
+
+                    <div class="flex-col space-y-2">
+                      <a
+                        v-for="(section_2_drop_dow_array_list,
+                        index) in nav_link.drop_down.section_2.array_lists"
+                        :key="`${section_2_drop_dow_array_list.title}_${index}`"
+                        class="block text-base cursor-pointer hover:pl-2 text-cowry-dark hover:text-cowry-main text-opacity-60 hover:text-opacity-100 font-medium truncate"
+                        :href="section_2_drop_dow_array_list.link"
+                      >
+                        {{ section_2_drop_dow_array_list.title }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </transition>
+            </li>
+
+            <li class="relative flex-col">
+              <a
+                href="https://cowrywise.com/blog/"
+                target="_blank"
+                class="px-4 py-2 text-cowry-dark text-opacity-60 hover:text-opacity-100 font-semibold text-base cursor-pointer"
+              >
+                Learn
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="space-x-1 flex items-center justify-center">
+        <nuxt-link
+          to="/auth/login"
+          class="py-2 px-4 md:py-3 md:px-6 font-medium md:font-semibold text-cowry-main text-opacity-80 hover:text-opacity-100"
         >
-          <span class="text-base text-gradient font-semibold uppercase">
-            Sign Up Today
-          </span>
+          Log In
+        </nuxt-link>
 
-          <h1
-            data-aos="fade-right"
-            data-aos-once="true"
-            class="text-[2.5rem] sm:text-5xl xl:text-6xl font-bold leading-tight capitalize sm:pr-8 xl:pr-10"
-          >
-            The World's
-            <span class="text-red-500">Fastest Growing</span>
-            Crypto Web App
-          </h1>
-          <p
-            data-aos="fade-down"
-            data-aos-once="true"
-            data-aos-delay="300"
-            class="hidden sm:block"
-          >
-            Buy and sell 200+ cryptocurrencies with 20+ flat currencies using
-            bank transfers or your credit/debit card.
-          </p>
-
-          <div
-            data-aos="fade-up"
-            data-aos-once="true"
-            data-aos-delay="700"
-            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-2"
-          >
-            <BaseButton
-              class="max-w-full px-8 py-4 bg-gradient-to-r from-[#468ef9] to-[#0c66ee] border border-[#0c66ee]"
-            >
-              Get Started
-            </BaseButton>
-
-            <BaseButton
-              class="max-w-full px-6 py-4 bg-inherit text-gradient border border-[#0c66ee] flex items-center justify-center"
-            >
-              <span>Download App</span>
-            </BaseButton>
-          </div>
-        </div>
-
-        <div class="hidden sm:block col-span-12 lg:col-span-6">
-          <div class="w-full">
-            <img
-              data-aos="fade-up"
-              data-aos-once="true"
-              :src="require('~/assets/img/hero-image.webp')"
-              class="-mt-4"
-              alt=""
-            />
-          </div>
-        </div>
-        <img
-          data-aos="fade-up"
-          data-aos-delay="300"
-          :src="require('~/assets/img/pattern/ellipse-1.png')"
-          class="hidden sm:block absolute bottom-12 xl:bottom-16 left-4 xl:left-0 w-6"
-        />
-        <img
-          data-aos="fade-up"
-          data-aos-delay="300"
-          :src="require('~/assets/img/pattern/ellipse-2.png')"
-          class="hidden sm:block absolute top-4 sm:top-10 right-64 sm:right-96 xl:right-[32rem] w-6"
-        />
-        <img
-          data-aos="fade-up"
-          data-aos-delay="300"
-          :src="require('~/assets/img/pattern/ellipse-3.png')"
-          class="hidden sm:block absolute bottom-56 right-24 w-6"
-        />
-        <img
-          data-aos="fade-up"
-          data-aos-delay="300"
-          :src="require('~/assets/img/pattern/star.png')"
-          class="hidden sm:block absolute top-20 sm:top-28 right-16 lg:right-0 lg:left-[30rem] w-8"
-        />
-      </BaseSection>
-    </section>
-  </div>
+        <nuxt-link
+          to="/auth/signup"
+          class="py-2 px-4 md:py-3 md:px-6 border rounded-lg font-medium md:font-semibold bg-cowry-main text-cowry-light bg-opacity-80 hover:bg-opacity-100 shadow-md"
+        >
+          Sign Up For Free
+        </nuxt-link>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
-
+import { onBeforeMount, ref } from 'vue'
 export default {
-  name: 'HomePageWelcome',
+  name: 'BaseNavbar',
   setup() {
-    const steps = ref([
+    const open = ref(false)
+    const scrollShadowBoolean = ref(true)
+    const active_dropdown_title = ref('')
+    const nav_links = ref([
       {
-        img: 'sign-up.png',
-        title: 'Sign Up',
-        description:
-          'Sign up for your free NEFA Wallet on web, iOS or Android and follow our easy process to set up your profile',
+        title: 'Personal',
+        drop_down: {
+          section_1: [
+            {
+              title: 'Plan',
+              description: 'Access financial tools & guides',
+              image: '',
+              link: 'https://cowrywise.com/plan',
+            },
+            {
+              title: 'Save',
+              description: 'Earn better interests than your bank',
+              image: '',
+              link: 'https://cowrywise.com/save',
+            },
+            {
+              title: 'Invest',
+              description: 'Build a global portfolio in one app',
+              image: '',
+              link: 'https://cowrywise.com/mutual-funds',
+            },
+            {
+              title: 'Get Statch',
+              description: 'A digital wallet for everything',
+              image: '',
+              link: 'https://cowrywise.com/stash',
+            },
+          ],
+
+          section_2: {
+            header: 'Growth Tools',
+            array_lists: [
+              {
+                title: 'Estimate your interest',
+                link: 'https://cowrywise.com/interest-tool',
+              },
+              {
+                title: 'Know your risk apettite',
+                link: 'https://cowrywise.com/risk-assessment',
+              },
+            ],
+          },
+        },
       },
       {
-        img: 'fund.png',
-        title: 'Fund',
-        description:
-          'Choose your preferred payment method such as bank transfer or credit card to top up your NEFA Wallet',
+        title: 'Business  ',
+        drop_down: {
+          section_1: [
+            {
+              title: 'Sprout',
+              description: 'Put your business idle cash to work',
+              image: '',
+              link: 'https://cowrywise.com/sprout',
+            },
+          ],
+
+          section_2: {
+            header: '',
+            array_lists: [],
+          },
+        },
       },
       {
-        img: 'buy-crypto.png',
-        title: 'Buy Crypto',
-        description:
-          'Buy Bitcoin or Ethereum, then securely store it in your Wallet or send it on easily to your friends anywhere',
+        title: 'Developer',
+        drop_down: {
+          section_1: [
+            {
+              title: 'Embed',
+              description: 'Offer investment services in your app',
+              image: '',
+              link: 'https://cowrywise.com/embed',
+            },
+            {
+              title: 'Docs',
+              description: 'Read how to integrate the Embed API',
+              image: '',
+              link: 'https://developers.cowrywise.com/',
+            },
+          ],
+
+          section_2: {
+            header: 'Connect',
+            array_lists: [
+              {
+                title: 'Join Embed on Slack',
+                link: 'https://embedbycowrywise.slack.com/',
+              },
+            ],
+          },
+        },
       },
+      // {
+      //   title: 'Learn',
+      //   drop_down: {
+      //     section_1: [],
+
+      //     section_2: {
+      //       header: '',
+      //       array_lists: [],
+      //     },
+      //   },
+      // },
     ])
-    const trendings = ref([
-      {
-        id: 1,
-        name: 'Bitcoin',
-        price: 43180.13,
-        logo: 'bitcoin.png',
-        increase: true,
-        data: [40, 35, 60, 75, 60, 75, 50],
-      },
-      {
-        id: 2,
-        name: 'Ethereum',
-        price: 3480.65,
-        logo: 'ethereum.png',
-        increase: false,
-        data: [25, 30, 60, 50, 80, 55, 80],
-      },
-      {
-        id: 3,
-        name: 'Solana',
-        price: 150.2,
-        logo: 'solana.png',
-        increase: true,
-        data: [40, 45, 40, 80, 50, 60, 35],
-      },
-      {
-        id: 4,
-        name: 'Dogecoin',
-        price: 0.1572,
-        logo: 'dogecoin.png',
-        increase: true,
-        data: [35, 70, 60, 80, 50, 60, 40],
-      },
-    ])
-    const topGainers = ref([
-      {
-        id: 1,
-        name: 'PAPPAY',
-        price: 0.00374,
-        logo: 'pappay.png',
-        increase: true,
-        data: [30, 50, 45, 60, 70, 40, 45],
-      },
-      {
-        id: 2,
-        name: 'Bitcoin Asia',
-        price: 0.02096,
-        logo: 'bitcoin-asia.png',
-        increase: true,
-        data: [25, 60, 50, 60, 35, 50, 70],
-      },
-      {
-        id: 3,
-        name: 'MoonRock',
-        price: 0.004907,
-        logo: 'moonrock.png',
-        increase: true,
-        data: [40, 35, 40, 25, 50, 70, 45],
-      },
-      {
-        id: 4,
-        name: 'NinjaFloki',
-        price: 0.000123,
-        logo: 'ninjafloki.png',
-        increase: true,
-        data: [45, 35, 40, 30, 25, 45, 35],
-      },
-    ])
-    const recents = ref([
-      {
-        id: 1,
-        name: 'MetaCraft',
-        price: 0.0608,
-        logo: 'metacraft.png',
-        increase: false,
-        data: [40, 50, 45, 60, 35, 40, 45],
-      },
-      {
-        id: 2,
-        name: 'Frog',
-        price: 0.5875,
-        logo: 'frog.png',
-        increase: false,
-        data: [25, 50, 45, 48, 40, 60, 45],
-      },
-      {
-        id: 3,
-        name: 'Musk Doge',
-        price: 0.04041,
-        logo: 'musk-doge.png',
-        increase: true,
-        data: [25, 35, 60, 45, 50, 45, 45],
-      },
-      {
-        id: 4,
-        name: '2SHARE',
-        price: 1366.24,
-        logo: '2share.png',
-        increase: true,
-        data: [35, 30, 60, 50, 35, 45, 40],
-      },
-    ])
-    const accordions = ref([
-      {
-        title: 'Why should I choose NEFA?',
-        description:
-          "We're industry pioneers, having been in the cryptocurrency industry since 2016. We've facilitated more than 21 billion USD worth of transactions on our exchange for customers in over 40 countries. Today, we're trusted by over 8 million customers around the world and have received praise for our easy-to-use app, secure wallet, and range of features.",
-      },
-      {
-        title: 'How secure is NEFA?',
-        description:
-          "We're industry pioneers, having been in the cryptocurrency industry since 2016. We've facilitated more than 21 billion USD worth of transactions on our exchange for customers in over 40 countries. Today, we're trusted by over million customers around the world and have received praise for our easy-to-use app, secure wallet, and range of features.",
-      },
-      {
-        title: 'Do I have to buy a whole Bitcoin?',
-        description:
-          "We're industry pioneers, having been in the cryptocurrency industry since 2016. We've facilitated more than 21 billion USD worth of transactions on our exchange for customers in over 40 countries. Today, we're trusted by over million customers around the world and have received praise for our easy-to-use app, secure wallet, and range of features.",
-      },
-      {
-        title: 'How do I actually buy Bitcoin?',
-        description:
-          "We're industry pioneers, having been in the cryptocurrency industry since 2016. We've facilitated more than 21 billion USD worth of transactions on our exchange for customers in over 40 countries. Today, we're trusted by over million customers around the world and have received praise for our easy-to-use app, secure wallet, and range of features.",
-      },
-    ])
-    return { accordions, recents, topGainers, trendings, steps }
+
+    const handleScroll = () => {
+      if (window.pageYOffset > 0) {
+        if (scrollShadowBoolean.value) scrollShadowBoolean.value = false
+      } else {
+        if (!scrollShadowBoolean.value) scrollShadowBoolean.value = true
+      }
+    }
+
+    const openDropdown = (active_nav_link: any) => {
+      if (active_dropdown_title.value === active_nav_link.title) {
+        return (active_dropdown_title.value = '')
+      }
+
+      active_dropdown_title.value = active_nav_link.title
+    }
+
+    window.addEventListener('scroll', () => handleScroll())
+
+    onBeforeMount(() => {
+      handleScroll()
+    })
+
+    return {
+      scrollShadowBoolean,
+      open,
+      active_dropdown_title,
+      nav_links,
+      openDropdown,
+    }
   },
 }
 </script>
+
+<style scoped>
+nav.scrolled {
+  @apply sticky shadow-md  transition-transform;
+}
+</style>
