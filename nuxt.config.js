@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'NAIJA_UI_CHALLENGE',
+    title: 'Cowrywise',
     htmlAttrs: {
       lang: 'en',
     },

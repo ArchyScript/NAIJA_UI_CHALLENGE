@@ -1,8 +1,6 @@
 <template>
   <div>
     Day 1
-
-    <Tutorial />
   </div>
 </template>
 
