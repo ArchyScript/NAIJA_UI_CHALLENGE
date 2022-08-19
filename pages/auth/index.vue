@@ -1,6 +1,6 @@
 <template>
   <div>
-    Day 1
+    Auth Page
   </div>
 </template>
 
