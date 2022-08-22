@@ -31,3 +31,14 @@ export type WelcomeUser = {
   link: string
   picture: string
 }
+export type GetStartedCard = {
+  title: string
+  description: string
+  details: string
+  link_text: string
+  link: string
+  mouse_out_image: string
+  mouse_over_image: string
+  bg_color: string
+  bg_contrast: string
+}

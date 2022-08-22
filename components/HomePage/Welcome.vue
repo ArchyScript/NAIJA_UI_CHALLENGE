@@ -107,8 +107,13 @@
       </div>
 
       <p
-        class="col-span-full -mt-4 py-2 text-sm flex justify-end text-cowry-dark font-medium"
+        class="col-span-full uppercase -mt-4 py-2 text-sm flex justify-end items-center text-cowry-dark font-medium"
       >
+        <img
+          class="h-3 w-3 mr-2 inline-flex"
+          :src="require('~/assets/img/sec.png')"
+          alt=""
+        />
         LICENSED BY THE SEC
       </p>
     </div>

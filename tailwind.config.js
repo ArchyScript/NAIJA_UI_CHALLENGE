@@ -23,7 +23,15 @@ module.exports = {
         '16': 'repeat(16, minmax(0, 1fr))',
       },
     },
-    container: {},
+    container: {
+      center: true,
+      padding: '1rem 0',
+      screens: {
+        lg: '1124px',
+        xl: '1200px',
+        '2xl': '1560px',
+      },
+    },
   },
   plugins: [],
 }

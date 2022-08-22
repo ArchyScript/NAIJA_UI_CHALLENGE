@@ -1,22 +1,24 @@
 <template>
   <div>
-    <Advert />
-    <TopBarVue />
-    <Welcome />
-    <GettingStarted />
-    <KeepingMoney />
-    <Welcome />
-    <Welcome />
+    <AdvertVue />
+    <HomeTopBarVue />
+    <WelcomeVue />
+    <GettingStartedVue />
+    <ResgitrationStepsVue />
+    <KeepingMoneyVue />
+    <WelcomeVue />
+    <WelcomeVue />
   </div>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue'
-import Welcome from './Welcome.vue'
-import TopBarVue from './TopBar.vue'
-import Advert from './Advert.vue'
-import GettingStarted from './GettingStarted.vue'
-import KeepingMoney from './KeepingMoney.vue'
+import WelcomeVue from './Welcome.vue'
+import HomeTopBarVue from './HomeTopBar.vue'
+import AdvertVue from './Advert.vue'
+import GettingStartedVue from './GettingStarted.vue'
+import ResgitrationStepsVue from './ResgitrationSteps.vue'
+import KeepingMoneyVue from './KeepingMoney.vue'
 
 export default {
   name: 'IndexPage',
@@ -24,11 +26,12 @@ export default {
     title: 'Plan, Save and Invest Online | Get high returns | Cowrywise',
   },
   components: {
-    Advert,
-    TopBarVue,
-    Welcome,
-    GettingStarted,
-    KeepingMoney,
+    AdvertVue,
+    HomeTopBarVue,
+    WelcomeVue,
+    GettingStartedVue,
+    ResgitrationStepsVue,
+    KeepingMoneyVue,
   },
 
   setup() {
