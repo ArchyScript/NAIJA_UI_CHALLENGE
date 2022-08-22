@@ -232,39 +232,15 @@ export default {
         ],
       },
       {
-        title: '',
+        title: 'Contact',
         sub_links: [
           {
-            title: '',
-            link: '',
+            title: 'support@cowrywise.com',
+            link: 'support@cowrywise.com',
           },
           {
-            title: '',
-            link: '',
-          },
-          {
-            title: '',
-            link: '',
-          },
-          {
-            title: '',
-            link: '',
-          },
-          {
-            title: '',
-            link: '',
-          },
-          {
-            title: '',
-            link: '',
-          },
-          {
-            title: '',
-            link: '',
-          },
-          {
-            title: '',
-            link: '',
+            title: 'WhatsApp ↗',
+            link: 'https://wa.me/message/TCXFSJS3VKZPD1',
           },
         ],
       },
