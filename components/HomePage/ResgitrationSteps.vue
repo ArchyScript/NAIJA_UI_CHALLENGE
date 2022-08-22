@@ -2,7 +2,9 @@
   <section
     class="bg-image w-full h-full pt-20 pb-32 px-24 bg-cowry-light bg-opacity-30"
   >
-    <div class="grid grid-cols-2 gap-x-16 xl:gap-x-20 h-full container mx-auto">
+    <div
+      class="grid grid-cols-2 gap-x-16 xl:gap-x-20 items-center h-full container mx-auto"
+    >
       <div class="w-full space-y-16 xl:space-y-20">
         <div class="flex-shrink-0 justify-self-center border">
           <img
@@ -33,16 +35,22 @@
               </h4>
 
               <p
-                :class="+index === 1 ? '' : 'border-l'"
-                class="ml-3 pl-20 pt-2 pb-6 border-l text-xl border-opacity-50 break-words border-cowry-dark text-opacity-50 font-medium"
+                :class="+index === 2 ? '' : 'border-l'"
+                class="ml-3 pl-20 pt-2 pb-6 text-xl border-opacity-50 break-words border-cowry-main text-opacity-80 font-medium"
               >
-                "{{ index }}"
                 {{ step.description }}
-                {{ typeof index }}
-                {{ typeof +index }}
               </p>
             </div>
           </div>
+
+          <p class="flex justify-between w-auto mt-8">
+            <nuxt-link
+              to="/auth/signup"
+              class="cursor-pointer bg-cowry-main capitalize rounded-md bg-opacity-90 hover:bg-opacity-100 text-cowry-light select-none text-base py-2 px-4 lg:py-2.5 lg:px-6 font-medium shadow"
+            >
+              sign up now
+            </nuxt-link>
+          </p>
         </div>
       </div>
     </div>
@@ -59,7 +67,7 @@ export default {
       {
         title: 'Create an account',
         description:
-          'Sign up for an account with your name, email and phone number.',
+          ' Sign up for an account with your name, email and phone number.',
       },
       {
         title: 'Add a payment method',

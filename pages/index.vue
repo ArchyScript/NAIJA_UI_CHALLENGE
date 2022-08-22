@@ -4,13 +4,12 @@
 
 <script lang="ts">
 import { ref } from 'vue'
-import VTypical from 'vue-typical'
 import HomePage from '~/components/HomePage/index.vue'
 
 export default {
   name: 'IndexPage',
   layout: 'landing',
-  components: { VTypical, HomePage },
+  components: { HomePage },
   setup() {
     const steps = ref([
       {

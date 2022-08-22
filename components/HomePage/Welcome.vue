@@ -5,7 +5,7 @@
         <div class="w-full h-auto relative">
           <div
             :class="active_ambassador.color"
-            class="absolute top-0 z-0 left-0 w-1/2 h-full bg-opacity-10"
+            class="absolute transition_image top-0 z-0 left-0 w-1/2 h-full bg-opacity-10"
           ></div>
 
           <div class="h-full w-full relative z-10 py-12 px-16">
@@ -165,3 +165,24 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.transition_image {
+  color: rgba(255, 101, 1);
+  animation: spin 8s linear ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: scale(1, 1);
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+    transform: rotate(360deg);
+  }
+}
+</style>
