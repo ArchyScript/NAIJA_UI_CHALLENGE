@@ -4,7 +4,9 @@
     :class="{ scrolled: !scrollShadowBoolean }"
     class="w-full bg-white z-40 top-0 mb-4 py-1"
   >
-    <div class="w-full container mx-auto flex justify-between items-center">
+    <div
+      class="w-full container px-4 lg:px-6 mx-auto flex justify-between items-center"
+    >
       <div
         class="w-full flex flex-1 relative px-4 mx-auto items-center justify-between py-3 space-x-8"
       >
@@ -31,7 +33,7 @@
                     ? 'text-cowry-dark'
                     : 'text-cowry-dark text-opacity-60'
                 "
-                class="flex items-center space-x-1 px-4 py-2 text-cowry-dark hover:text-opacity-100 font-normal text-sm xl:text-base cursor-pointer"
+                class="flex items-center space-x-1 px-3 lg:px-4 py-2 text-cowry-dark hover:text-opacity-100 font-normal text-sm xl:text-base cursor-pointer"
                 @click="openDropdown(nav_link)"
               >
                 <span>
