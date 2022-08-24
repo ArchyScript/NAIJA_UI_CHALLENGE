@@ -5,12 +5,12 @@
         <div class="w-full h-auto relative">
           <div
             :class="active_ambassador.color"
-            class="absolute transition_image top-0 z-0 left-0 w-1/2 h-full bg-opacity-10"
+            class="absolute transition_image top-0 z-0 left-0 w-3/5 h-full bg-opacity-10"
           ></div>
 
-          <div class="h-full w-full relative z-10 py-12 px-16">
+          <div class="h-full w-full relative z-10 py-10 px-12">
             <section class="h-full relative mb-3">
-              <div class="" style="height: 650px;">
+              <div class="" style="height: 560px;">
                 <img
                   :src="active_ambassador.picture"
                   alt=""
@@ -19,33 +19,33 @@
               </div>
 
               <div
-                class="absolute shadow-md block w-3/5 -right-6 -bottom-6 bg-white py-4 px-6 rounded-lg"
+                class="absolute shadow-lg block w-3/5 -right-6 -bottom-6 bg-white p-4 rounded-lg"
               >
-                <blockquote
-                  class="text-xs sm:text-sm text-cowry-dark text-opacity-80"
-                >
+                <blockquote class="text-xs text-cowry-dark text-opacity-80">
                   {{ active_ambassador.quote }}
                 </blockquote>
 
                 <div class="flex justify-between items-center mt-4">
                   <span
                     class="text-xs sm:text-sm text-cowry-dark font-semibold text-opacity-80"
-                    >{{ active_ambassador.name }}</span
                   >
+                    {{ active_ambassador.name }}
+                  </span>
 
                   <a
                     :href="active_ambassador.link"
                     target="_blank"
                     class="text-xs sm:text-sm font-semibold text-cowry-main text-opacity-80 hover:text-opacity-100"
-                    >@{{ active_ambassador.cowrywise_handle }}</a
                   >
+                    @{{ active_ambassador.cowrywise_handle }}
+                  </a>
                 </div>
               </div>
             </section>
 
-            <section class="flex items-center space-x-4 mt-10">
+            <section class="flex items-center space-x-4 mt-8">
               <div
-                class="h-16 w-16 cursor-pointer relative"
+                class="h-10 w-10 cursor-pointer relative"
                 v-for="ambassador in ambassadors"
                 :key="ambassador.name"
                 @click="showAmbassador(ambassador)"
@@ -53,17 +53,18 @@
                 <span
                   :class="
                     ambassador.name === active_ambassador.name
-                      ? 'bg-opacity-10'
+                      ? 'bg-opacity-10  shadow-sm'
                       : ' bg-opacity-40'
                   "
                   class="block absolute top-0 left-0 w-full h-full bg-cowry-dark"
                 >
                 </span>
+
                 <img
                   :src="ambassador.picture"
                   :alt="ambassador.name"
                   :title="ambassador.name"
-                  class="w-full h-full object-fill"
+                  class="w-full h-full object-fill rounded"
                 />
               </div>
             </section>
@@ -72,26 +73,24 @@
       </div>
 
       <div class="col-span-2 md:col-span-1">
-        <div class="w-full h-full flex justify-center flex-col p-4 -mt-10">
+        <div class="w-full h-full flex justify-center flex-col p-3 -mt-10">
           <h2 class="text-7xl text-cowry-dark font-semibold mb-2">
             Put your <br />
             money to work.
           </h2>
 
           <span
-            class="block text-xl text-cowry-dark text-opacity-70 font-semibold"
+            class="block text-lg text-cowry-dark text-opacity-60 font-medium"
           >
             Build discipline, access financial tools that steadily grow your
             finances.
           </span>
 
           <div class="mt-16">
-            <form
-              class="flex space-x-3 relative flex-wrap items-stretch w-full sm:13/4 md:w-full lg:w-3/4 mb-4"
-            >
+            <form class="flex space-x-3 relative items-stretch w-full mb-4">
               <input
                 type="email"
-                class="relative flex-auto px-4 py-2 md:py-3 md:px-6 text-base font-medium text-cowry-gray bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                class="rela tive flex-auto w-auto px-4 py-2 md:py-3 md:px-6 text-base font-medium text-cowry-gray bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 placeholder="Your email"
               />
 
@@ -107,13 +106,14 @@
       </div>
 
       <p
-        class="col-span-full uppercase -mt-4 py-2 text-sm flex justify-end items-center text-cowry-dark font-medium"
+        class="col-span-full uppercase -mt-4 py-2 text-xs flex justify-end items-center text-cowry-dark text-opacity-80 font-normal"
       >
         <img
-          class="h-3 w-3 mr-2 inline-flex"
+          class="h-4 w-4 mr-2 inline-flex"
           :src="require('~/assets/img/sec.png')"
           alt=""
         />
+
         LICENSED BY THE SEC
       </p>
     </div>
@@ -132,7 +132,7 @@ export default {
       {
         name: 'Wuraola F',
         quote: `I've become more conscious of how I spend my money and also about investing. Now, I feel comfortable spending knowing my Cowrywise account is there.`,
-        cowrywise_handle: 'wuwu ',
+        cowrywise_handle: 'wuwu',
         link: 'https://cowrywise.com/@wuwu',
         picture: require('~/assets/img/ambassadors/wura.jpg'),
         color: 'bg-red-500',

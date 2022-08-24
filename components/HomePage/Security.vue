@@ -1,23 +1,39 @@
 <template>
-  <section class="relative w-full h-auto py-20 pb-40 bg-cowry-main">
-    <div class="z-20 container mx-auto">
-      <div class="w-2/5 p-6 space-y-6">
+  <section class="relative w-full py-12 pb-24 bg-cowry-main">
+    <div class="container bg-cowry-main mx-auto">
+      <div class="w-full lg:w-1/2 p-6 space-y-4 mb-4">
         <h3 class="text-5xl text-white font-semibold mb-4">
           Keeping your money safe is our business.
         </h3>
 
-        <span class="block text-xl text-white text-opacity-70 font-medium">
+        <span
+          class="block text-lg text-cowry-light text-opacity-90 font-medium"
+        >
           Trust is our currency. We are committed to the security of your money
           and the protection of your account.
         </span>
 
-        <p class="flex justify-between w-auto py-2">
+        <p class="flex">
           <a
             href="https://cowrywise.com/security"
             target="_blank"
-            class="cursor-pointer select-none text-white text-sm py-1.5 px-2.5 uppercase text-opacity-80 hover:text-opacity-100 font-semibold"
+            class="flex cursor-pointer items-center space-x-2 text-cowry-light text-sm py-2 px-3 uppercase text-opacity-80 hover:text-opacity-100 font-semibold"
           >
-            Learn more
+            <span>
+              Learn more
+            </span>
+
+            <span class="h-3">
+              <svg
+                class="h-full fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"
+                />
+              </svg>
+            </span>
           </a>
         </p>
       </div>
@@ -30,14 +46,22 @@
             :key="`${security_measure.title}_${index}`"
           >
             <h4
-              class="flex items-center mb-3 text-2xl text-white font-semibold"
+              class="flex items-center mb-3 text-2xl text-cowry-light font-semibold"
             >
-              <span class="mr-10 bg-white shadow-lg h-4 w-4 rounded-md"> </span>
+              <span
+                class="mr-10 relative bg-cowry-light shadow-lg h-4 w-4 z-10 rounded-sm"
+              >
+                <span
+                  class="absolute h-full w-full top-1 left-1 rounded-sm z-0 bg-cowry-dark bg-opacity-40"
+                >
+                </span>
+              </span>
+
               <span> {{ security_measure.title }} </span>
             </h4>
 
             <p
-              class="ml-3 pl-10 pb-4 text-xl text-opacity-70 break-words text-cowry-light font-medium"
+              class="ml-3 pl-10 pb-4 text-base text-opacity-80 break-words text-cowry-light font-normal"
             >
               {{ security_measure.description }}
             </p>
@@ -47,10 +71,10 @@
     </div>
 
     <div
-      class="flex opacity-50 z-10 justify-end w-full h-full absolute bottom-0 right-0"
+      class="flex opacity-30 z-10 w-2/5 h-full justify-end absolute bottom-0 right-0"
     >
       <img
-        class="w-2/5 h-full mt-14 object-right"
+        class="w-full h-full mt-14 object-right"
         :src="require('assets/img/getting-started/stash.svg')"
         alt=""
       />
@@ -95,10 +119,10 @@ export default {
 </script>
 
 <style scoped>
-.security_hero {
+.hero {
   background-image: url('assets/img/getting-started/stash.svg');
+  background-position: center;
   background-repeat: no-repeat;
-  object-fit: cover;
-  object-position: right;
+  background-size: cover;
 }
 </style>

@@ -2,23 +2,23 @@
   <nav
     id="navbar"
     :class="{ scrolled: !scrollShadowBoolean }"
-    class="w-full bg-white z-40 top-0 mb-4 py-2"
+    class="w-full bg-white z-40 top-0 mb-4 py-1"
   >
     <div class="w-full container mx-auto flex justify-between items-center">
       <div
-        class="w-full flex flex-1 relative px-6 mx-auto items-center justify-between py-4 space-x-8"
+        class="w-full flex flex-1 relative px-4 mx-auto items-center justify-between py-3 space-x-8"
       >
         <div class="flex-shrink-0 flex items-center">
           <img
             :src="require('~/assets/img/cowrywise-full-logo.png')"
-            class="h-6 md:h-8 xl:h-9"
+            class="h-4 sm:h-5 lg:h-6 xl:h-7"
             alt="Cowrywise Logo"
           />
         </div>
 
-        <div class="flex-1 px-8">
+        <div class="flex-1 px-6">
           <ul
-            class="w-full h-auto flex items-center space-x-2 pb-4 lg:pb-0 lg:flex-row origin-top duration-300 space-y-3 lg:space-y-0"
+            class="w-full h-auto flex items-center space-x-2 pb-4 lg:pb-0 lg:flex-row origin-top duration-300 space- y-3 lg:space-y-0"
           >
             <li
               class="relative flex-col"
@@ -31,10 +31,36 @@
                     ? 'text-cowry-dark'
                     : 'text-cowry-dark text-opacity-60'
                 "
-                class="px-4 py-2 text-cowry-dark hover:text-opacity-100 font-semibold text-base cursor-pointer"
+                class="flex items-center space-x-1 px-4 py-2 text-cowry-dark hover:text-opacity-100 font-normal text-sm xl:text-base cursor-pointer"
                 @click="openDropdown(nav_link)"
               >
-                {{ nav_link.title }}
+                <span>
+                  {{ nav_link.title }}
+                </span>
+
+                <span class="h-3">
+                  <svg
+                    v-if="active_dropdown_title !== nav_link.title"
+                    class="h-full fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"
+                    />
+                  </svg>
+
+                  <svg
+                    v-if="active_dropdown_title === nav_link.title"
+                    class="h-full fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"
+                    />
+                  </svg>
+                </span>
               </span>
 
               <transition
@@ -51,23 +77,23 @@
                       ? 'grid-cols-2'
                       : 'grid-cols-1'
                   "
-                  class="w-full grid gap-10 p-6 absolute bg-white z-20 min-w-max mt-5 rounded-lg lg:rounded-xl border-2 border-opacity-30 border-cowry-gray shadow-md -ml-20"
+                  class="w-full grid gap-10 p-6 absolute bg-white z-20 min-w-max mt-3 rounded-lg lg:rounded-xl border border-opacity-30 border-cowry-gray shadow-xl -ml-20"
                 >
-                  <span
+                  <!-- <span
                     class="hidden w-4 h-4 -mt-2 absolute bg-white z-10 ml-28 -translate-y-full rotate-45 border-2 border-opacity-30 border-cowry-gray"
-                  ></span>
+                  ></span> -->
 
-                  <div class="flex-col space-y-4">
+                  <div class="flex-col space-y-2">
                     <a
                       v-for="(section_1_drop_down, index) in nav_link.drop_down
                         .section_1"
                       :key="`${section_1_drop_down.title}_${index}`"
-                      class="items-center p-2 mb-2 flex flex-1 space-x-4 truncate text-cowry-dark hover:text-cowry-main text-opacity-80 cursor-pointer"
+                      class="items-center p-2 flex flex-1 space-x-4 truncate text-cowry-dark hover:text-cowry-main text-opacity-80 cursor-pointer"
                       :href="section_1_drop_down.link"
                       target="_blank"
                     >
                       <div
-                        class="flex-shrink-0 bg-cowry-light truncate h-10 p-1 sm:h-12 sm:w-12 inline-flex rounded-full border border-cowry-gray cursor-pointer"
+                        class="flex-shrink-0 bg-cowry-light truncate h-8 p-1 sm:h-10 sm:w-10 inline-flex rounded-full border border-cowry-gray cursor-pointer"
                       >
                         <img
                           class="w-full h-full"
@@ -76,12 +102,12 @@
                       </div>
 
                       <div class="truncate">
-                        <span class="block text-lg font-bold truncate mb-1">
+                        <span class="block text-base font-semibold truncate">
                           {{ section_1_drop_down.title }}
                         </span>
 
                         <span
-                          class="block text-base font-thin object-fill text-opacity-30 truncate"
+                          class="block text-sm font-thin text-opacity-30 truncate"
                         >
                           {{ section_1_drop_down.description }}
                         </span>
@@ -99,17 +125,17 @@
                     class="border-l border-cowry-gray border-opacity-20 pl-10"
                   >
                     <h4
-                      class="block text-lg mb-4 font-semibold text-cowry-dark text-opacity-80 truncate"
+                      class="block text-base mb-4 mt-2 font-semibold text-cowry-dark text-opacity-70 truncate"
                     >
                       {{ nav_link.drop_down.section_2.header }}
                     </h4>
 
-                    <div class="flex-col space-y-2">
+                    <div class="flex-col space-y-1">
                       <a
                         v-for="(section_2_drop_dow_array_list,
                         index) in nav_link.drop_down.section_2.array_lists"
                         :key="`${section_2_drop_dow_array_list.title}_${index}`"
-                        class="block text-base cursor-pointer hover:pl-2 text-cowry-dark hover:text-cowry-main text-opacity-60 hover:text-opacity-100 font-medium truncate"
+                        class="block text-sm cursor-pointer text-cowry-dark hover:text-cowry-main text-opacity-60 hover:text-opacity-100 font-medium truncate"
                         :href="section_2_drop_dow_array_list.link"
                       >
                         {{ section_2_drop_dow_array_list.title }}
@@ -124,7 +150,7 @@
               <a
                 href="https://cowrywise.com/blog/"
                 target="_blank"
-                class="px-4 py-2 text-cowry-dark text-opacity-60 hover:text-opacity-100 font-semibold text-base cursor-pointer"
+                class="px-4 py-2 text-cowry-dark text-opacity-60 hover:text-opacity-100 font-normal text-sm xl:text-base cursor-pointer"
               >
                 Learn
               </a>
@@ -136,14 +162,14 @@
       <div class="space-x-1 flex items-center justify-center">
         <nuxt-link
           to="/auth/login"
-          class="py-2 px-4 md:py-3 md:px-6 font-medium md:font-semibold text-cowry-main text-opacity-80 hover:text-opacity-100"
+          class="py-1.5 px-3 md:py-2.5 md:px-4 font-semibold text-sm text-cowry-main text-opacity-80 hover:text-opacity-100"
         >
           Log In
         </nuxt-link>
 
         <nuxt-link
           to="/auth/signup"
-          class="py-2 px-4 md:py-3 md:px-6 border rounded-lg font-medium md:font-semibold bg-cowry-main text-cowry-light bg-opacity-80 hover:bg-opacity-100 shadow-md"
+          class="py-1.5 px-3 md:py-2.5 md:px-4 font-semibold text-sm bg-cowry-main text-cowry-light bg-opacity-70 hover:bg-opacity-90 shadow-lg rounded-lg"
         >
           Sign Up For Free
         </nuxt-link>
@@ -207,7 +233,7 @@ export default {
         },
       },
       {
-        title: 'Business  ',
+        title: 'Business',
         drop_down: {
           section_1: [
             {

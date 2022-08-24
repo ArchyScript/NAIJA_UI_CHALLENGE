@@ -1,38 +1,67 @@
 <template>
   <section class="container w-full h-auto py-20 pb-40">
     <div class="p-6 mb-12 space-y-6">
-      <h3 class="text-2xl text-cowry-dark font-semibold mb-4">
+      <h3 class="text-cowry-dark uppercase font-semibold mb-4">
         WHY COWRYWISE ?
       </h3>
-      <span
-        class="text-5xl flex items-center text-cowry-dark text-opacity-70 font-bold"
-      >
-        Convinced? Sign up now.
-      </span>
+      <transition class="">
+        <span
+          class="text-cowry-dark text-opacity-70 space-x-4 text-5xl flex items-center font-bold"
+        >
+          <span class="bounce-enter-active text-cowry-dark text-opacity-70">
+            {{ current_q_and_a.question }}
+          </span>
+
+          <span class="bounce-enter-active text-cowry-dark text-opacity-100">
+            {{ current_q_and_a.answer }}
+          </span>
+        </span>
+      </transition>
     </div>
 
     <div class="p-6">
-      <div class="grid grid-cols-2 gap-16">
+      <div class="grid grid-cols-2 gap-x-16 gap-y-36">
         <div
           class="col-span-2 md:col-span-1 shadow-xl rounded-lg p-10"
           v-for="(app_download, index) in app_downloads"
           :key="`${app_download.name}_${index}`"
         >
           <div class="flex justify-between items-center pb-6">
-            <span class="flex items-center mb-3 text-cowry-dark font-semibold">
-              <span class="text-cowry-gray text-4xl font-semibold">
-                {{ app_download.rating }} /</span
+            <span class="flex items-center">
+              <span
+                class="flex items-center text-cowry-dark text-opacity-70 text-4xl font-semibold"
               >
-              <span class="text-cowry-dark text-xl font-semibold"> 5 </span>
+                {{ app_download.rating }}/
+                <span class="text-cowry-gray text-xl"> 5 </span>
+              </span>
+
+              <span class="inline-flex space-x-2 hid den ml-2 py-1.5 px-3">
+                <span
+                  class="h-4 w-4 text-yellow-600"
+                  v-for="x in app_download.rating"
+                  :key="x"
+                >
+                  <svg
+                    class="h-full fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                  >
+                    <path
+                      d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"
+                    />
+                  </svg>
+                </span>
+              </span>
             </span>
 
-            <span
-              class="flex items-center space-x-2 py-2 px-3.5 rounded-md bg-cowry-dark"
+            <a
+              class="flex items-center space-x-3 py-1 px-4 rounded-md bg-cowry-dark"
+              href="https://cwry.se/app"
             >
-              <span class="h-10 inline-flex text-white">
+              <span class="h-6 inline-flex text-white">
                 <svg
                   v-if="app_download.name === 'Google'"
-                  class="h-full fill-current text-gray-500"
+                  class="h-full fill-current"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
                 >
@@ -53,61 +82,85 @@
                 </svg>
               </span>
 
-              <span class="flex flex-col gap-y-1">
-                <span class="block text-xs font-thin text-white text-opacity-70"
-                  >Get it on
+              <span class="flex flex-col">
+                <span
+                  v-if="app_download.name === 'Google'"
+                  class="block text-xs font-thin text-cowry-light text-opacity-70"
+                >
+                  Get it on
+                </span>
+                <span
+                  v-if="app_download.name === 'Apple'"
+                  class="block text-xs font-thin text-cowry-light text-opacity-70"
+                >
+                  Download on the
                 </span>
 
-                <span
-                  class="block text-white font-semibold font-blacktext-xl"
-                  >{{ app_download.title }}</span
-                >
+                <span class="block text-xs text-cowry-light font-medium">
+                  {{ app_download.title }}
+                </span>
               </span>
-            </span>
+            </a>
           </div>
 
           <h4
-            class="flex items-center mb-3 text-2xl text-cowry-dark text-opacity-80 font-semibold"
+            class="flex items-center mb-2 text-xl text-cowry-dark text-opacity-80 font-semibold"
           >
             <span> {{ app_download.title }} </span>
           </h4>
 
           <p
-            class="mb-3 text-xl border-opacity-50 break-words border-cowry-main text-opacity-80 font-medium"
+            class="mb-2 text-base text-cowry-dark break-words text-opacity-80 font-medium"
           >
             {{ app_download.review }}
           </p>
 
-          <p class="flex justify-between w-auto mt-8">
+          <p class="flex justify-between w-auto mt-6">
             <a
               :href="app_download.link"
-              class="cursor-pointer text-cowry-main uppercase rounded-md text-base py-2 px-4 lg:py-2.5 lg:px-6 font-medium shadow"
+              class="cursor-pointer flex items-center space-x-2 text-cowry-main uppercase rounded-md text-xs pr-3 pl-1 font-medium"
             >
-              download now
+              <span>
+                download now
+              </span>
+
+              <span class="h-3 font-thin">
+                <svg
+                  class="h-full fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"
+                  />
+                </svg>
+              </span>
             </a>
           </p>
         </div>
 
         <div
-          class="col-span-full grid grid-cols-2 gap-20 bg-cowry-main shadow-2xl p-16"
+          class="col-span-full grid items-center grid-cols-2 gap-20 bg-cowry-main shadow-2xl p-16 mt-20 rounded-2xl shadow-cowry-main"
         >
-          <h4 class="text-4xl text-white font-bold col-span-2 md:col-span-1">
-            <span>Sign up for free.</span>
-            <span>Start investing today.</span>
+          <h4
+            class="text-4xl flex flex-col justify-center space-y-3 text-cowry-light font-semibold col-span-2 md:col-span-1"
+          >
+            <span class="block">Sign up for free.</span>
+            <span class="block">Start investing today. </span>
           </h4>
 
           <div class="col-span-2 md:col-span-1">
             <form
-              class="flex space-x-3 relative flex-wrap items-stretch w-full sm:13/4 md:w-full lg:w-3/4 mb-4"
+              class="flex space-x-2 relative bg-cowry-light bg-opacity-40 rounded-lg flex-wrap items-stretch w-full p-1"
             >
               <input
                 type="email"
-                class="relative flex-auto px-4 py-2 md:py-3 md:px-6 text-base font-medium text-cowry-gray bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                class="relative flex-auto py-1.5 px-3 md:py-2 md:px-4 bg-transparent text-cowry-light placeholder-cowry-dark placeholder-opacity-70 font-medium text-opacity-90 focus:text-opacity-100 outline-none"
                 placeholder="Your email"
               />
 
               <button
-                class="py-2 px-4 md:py-3 md:px-6 border rounded-md font-medium md:font-semibold bg-cowry-main text-cowry-light bg-opacity-80 hover:bg-opacity-100 shadow-md"
+                class="py-1.5 px-3 md:py-2 md:px-4 font-medium md:font-semibold bg-cowry-light rounded-lg text-cowry-dark bg-opacity-80 hover:bg-opacity-100 shadow-md"
                 type="button"
               >
                 Start Investing
@@ -121,7 +174,7 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import VTypical from 'vue-typical'
 
 export default {
@@ -132,7 +185,7 @@ export default {
       {
         name: 'Google',
         title: 'Play store',
-        rating: 0,
+        rating: 5,
         link: 'https://cwry.se/app',
         review:
           '“User interface is fantastic, deposits and withdrawals flawless and fast. I wish I had discovered this years ago, would have been a millionaire by now” - Obiora, Nov 2021',
@@ -140,34 +193,82 @@ export default {
       {
         name: 'Apple',
         title: 'App store',
-        rating: 0,
+        rating: 5,
         link: 'https://cwry.se/app',
         review:
           "“I just don't know what to say about this app all i know is that it's awesome, it's been 2 years plus and I haven't had a reason to complain.” - Henrietta, December 2021",
       },
     ])
+    const question_and_answers = ref([
+      {
+        question: 'Got SEC licence?',
+        answer: 'Yup!',
+      },
+      {
+        question: 'Saving Charges?',
+        answer: 'Nope.',
+      },
+      {
+        question: 'Great Interest Rates?',
+        answer: 'Confam.',
+      },
+      {
+        question: 'Maintenance Fees?',
+        answer: 'No.',
+      },
+
+      {
+        question: ' Convinced?',
+        answer: 'Sign up now.',
+      },
+    ])
+
+    const current_q_and_a = ref(question_and_answers.value[0])
+
+    const toggleQuestionsAndAnswers = async () => {
+      let current_q_and_a_index = 1
+
+      function displayHello() {
+        current_q_and_a.value.question =
+          question_and_answers.value[current_q_and_a_index].question
+        current_q_and_a.value.answer =
+          question_and_answers.value[current_q_and_a_index].answer
+
+        current_q_and_a_index++
+
+        if (current_q_and_a_index >= question_and_answers.value.length)
+          current_q_and_a_index = 0
+      }
+
+      setInterval(displayHello, 2500)
+    }
+
+    onBeforeMount(() => toggleQuestionsAndAnswers())
 
     return {
       app_downloads,
+      current_q_and_a,
     }
   },
 }
 </script>
 
 <style scoped>
-.text_animation {
-  animation: bounce 1s infinite;
+.bounce-enter-active {
+  animation: bounce-in 1s;
 }
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+.bounce-leave-active {
+  animation: bounce-in 1.2s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: opacity(0);
   }
   50% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transform: opacity(0.5);
+  }
+  100% {
+    transform: opacity(1);
   }
 }
 </style>

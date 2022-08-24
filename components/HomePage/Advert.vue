@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="w-full text-xs bg-cowry-main from-co wry-dark to-cow ry-main bg-gradient-to-br text-center py-2"
-  >
+  <div class="w-full text-xs bg-cowry-main text-center py-1.5">
     <a
       href="https://cowrywise.com/opes-diary"
       target="_blank"
@@ -9,16 +7,16 @@
       class="flex justify-center items-center space-x-2"
     >
       <span
-        class="text-cowry-light flex items-center justify-center bg-green-500 uppercase pt-1 pb-0.5 px-1.5 rounded-md text-xs font-semibold"
+        class="text-cowry-light flex items-center justify-center bg-green-500 uppercase pt-1 pb-0.5 px-1.5 rounded-sm text-xs font-medium"
       >
         new !
       </span>
 
-      <span class="text-cowry-light text-xs font-bold">
+      <span class="text-cowry-light text-xs font-semibold">
         Ope's Diary is out 🎉
       </span>
 
-      <span class="text-cowry-light text-xs font-semibold">
+      <span class="text-cowry-light text-xs font-medium">
         Get your copy. ↗
       </span>
     </a>

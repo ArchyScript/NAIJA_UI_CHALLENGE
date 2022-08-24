@@ -1,13 +1,13 @@
 <template>
   <div>
     <AdvertVue />
-    <HomeTopBarVue />
+    <TopBarVue />
     <WelcomeVue />
     <GettingStartedVue />
     <ResgitrationStepsVue />
     <SecurityVue />
     <WhyCowrywiseVue />
-    <WelcomeVue />
+    <FooterVue />
 
     <!-- <div class="perk">
             <span
@@ -67,13 +67,14 @@
 
 <script lang="ts">
 import { ref } from 'vue'
-import WelcomeVue from './Welcome.vue'
-import HomeTopBarVue from './HomeTopBar.vue'
 import AdvertVue from './Advert.vue'
+import WelcomeVue from './Welcome.vue'
+import TopBarVue from './TopBar.vue'
 import GettingStartedVue from './GettingStarted.vue'
 import ResgitrationStepsVue from './ResgitrationSteps.vue'
 import SecurityVue from './Security.vue'
 import WhyCowrywiseVue from './WhyCowrywise.vue'
+import FooterVue from './Footer.vue'
 
 export default {
   name: 'IndexPage',
@@ -82,12 +83,13 @@ export default {
   },
   components: {
     AdvertVue,
-    HomeTopBarVue,
+    TopBarVue,
     WelcomeVue,
     GettingStartedVue,
     ResgitrationStepsVue,
     SecurityVue,
     WhyCowrywiseVue,
+    FooterVue,
   },
 
   setup() {

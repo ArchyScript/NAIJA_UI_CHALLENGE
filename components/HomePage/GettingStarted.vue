@@ -1,14 +1,14 @@
 <template>
   <section id="hero" class="w-full h-full pb-48">
-    <div class="grid grid-cols-2 gap-x-16 xl:gap-x-20 h-full container mx-auto">
-      <div class="w-full space-y-16 xl:space-y-20">
+    <div class="grid grid-cols-2 gap-x-20 xl:gap-x-24 h-full container mx-auto">
+      <div class="w-full space-y-20 xl:space-y-24">
         <div class="w-full p-6">
           <h3 class="text-5xl text-cowry-dark font-semibold mb-4">
             Get financial freedom
           </h3>
 
           <span
-            class="block text-xl text-cowry-dark text-opacity-70 font-medium"
+            class="block text-lg text-cowry-dark text-opacity-60 font-medium"
           >
             Plan towards your dream home, fund your kid's education, travel the
             world, all in one app.
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="w-full space-y-16 xl:space-y-20">
+      <div class="w-full space-y-20 xl:space-y-24">
         <div v-for="card_object in right_card_objects" :key="card_object.title">
           <BaseGetStartedCard :card_object="card_object" />
         </div>
@@ -43,7 +43,7 @@ export default {
         link_text: 'start saving',
         link: 'https://cowrywise.com/save',
         mouse_out_image: require('~/assets/img/getting-started/savings.png'),
-        mouse_over_image: require('~/assets/img/getting-started/start-building.png'),
+        mouse_over_image: require('~/assets/img/getting-started/save.png'),
         bg_color: 'bg-purple-100 bg-opacity-90',
         bg_contrast: 'light',
       },
@@ -54,9 +54,9 @@ export default {
         link_text: 'start investing',
         link: 'https://cowrywise.com/mutual-funds',
         mouse_out_image: require('~/assets/img/getting-started/mutual-funds.svg'),
-        mouse_over_image: require('~/assets/img/getting-started/start-building.png'),
+        mouse_over_image: require('~/assets/img/getting-started/mutual-funds.png'),
         bg_color: 'bg-pink-100 bg-opacity-90',
-        bg_contrast: 'light ',
+        bg_contrast: 'light',
       },
       {
         title: 'Stash',
@@ -66,7 +66,7 @@ export default {
         link_text: 'Explore it now',
         link: 'https://cowrywise.com/stash',
         mouse_out_image: require('~/assets/img/getting-started/stash.svg'),
-        mouse_over_image: require('~/assets/img/getting-started/start-building.png'),
+        mouse_over_image: require('~/assets/img/getting-started/stash.png'),
         bg_color: 'bg-cowry-main',
         bg_contrast: 'dark',
       },
@@ -80,7 +80,7 @@ export default {
         link_text: 'join a circle',
         link: 'https://cowrywise.com/circles/',
         mouse_out_image: require('~/assets/img/getting-started/circles.svg'),
-        mouse_over_image: require('~/assets/img/getting-started/start-building.png'),
+        mouse_over_image: require('~/assets/img/getting-started/circles.png'),
         bg_color: 'bg-red-100 bg-opacity-90',
         bg_contrast: 'light',
       },
@@ -91,7 +91,7 @@ export default {
         link_text: 'copy your emergency plan',
         link: 'https://cowrywise.com/blog/emergency-fund/',
         mouse_out_image: require('~/assets/img/getting-started/emergency.svg'),
-        mouse_over_image: require('~/assets/img/getting-started/start-building.png'),
+        mouse_over_image: require('~/assets/img/getting-started/emergency.png'),
         bg_color: 'bg-blue-100 bg-opacity-80',
         bg_contrast: 'light',
       },
@@ -102,7 +102,7 @@ export default {
         link_text: 'get early access',
         link: 'https://forms.gle/gnkq5MZjcXnxovnx6',
         mouse_out_image: require('~/assets/img/getting-started/stocks.svg'),
-        mouse_over_image: require('~/assets/img/getting-started/start-building.png'),
+        mouse_over_image: require('~/assets/img/getting-started/stocks.png'),
         bg_color: 'bg-indigo-100 bg-opacity-80',
         bg_contrast: 'light',
       },
