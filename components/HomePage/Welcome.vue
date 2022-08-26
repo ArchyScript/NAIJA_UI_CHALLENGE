@@ -18,7 +18,7 @@
                 <img
                   :src="active_ambassador.picture"
                   alt=""
-                  class="w-full sm:w-auto h-full object-fill"
+                  class="w-full md:w-auto h-full object-fill"
                 />
               </div>
 

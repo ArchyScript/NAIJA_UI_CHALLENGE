@@ -24,7 +24,7 @@
       </transition>
     </div>
 
-    <div class="p-6">
+    <div class="p-2 sm:p-6">
       <div
         class="grid grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-8 sm:space-y-10 md:space-y-0"
       >
@@ -165,18 +165,35 @@
             <span class="block">Start investing today. </span>
           </h4>
 
-          <div class="col-span-2 md:col-span-1 sm:w-1/2 md:w-full">
+          <div class="col-span-2 md:col-span-1 sm:w-3/4 lg:w-full">
             <form
-              class="flex flex-col lg:flex-row space-x-0 lg:space-x-2 relative bg-cowry-light bg-opacity-40 rounded-lg items-stretch w-full p-0 lg:p-1"
+              class="flex flex-col sm:flex-row md:flex-col lg:flex-row space-y-2 sm:space-y-0 md:space-y-2 lg:space-y-0 space-x-0 sm:space-x-3 md:space-x-0 lg:space-x-4 relative items-stretch w-full mb-4"
             >
               <input
                 type="email"
-                class="block lg:flex py-2 px-3 sm:py-2.5 sm:px-4 w-auto bg-transparent text-cowry-light placeholder-cowry-light placeholder-opacity-70 font-medium text-opacity-90 focus:text-opacity-100 outline-none"
+                class="block sm:flex md:block lg:flex flex-auto w-auto px-4 py-2 lg:py-3 lg:px-6 text-xs sm:text-sm lg:text-base font-medium text-cowry-gray bg-white bg-opacity-60 bg-clip-padding rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 placeholder="Your email"
               />
 
               <button
-                class="py-2 px-3 sm:py-2.5 lg:px-4 block lg:inline-flex flex-auto w-full sm:w-auto font-semibold text-xs sm:text-sm bg-cowry-light rounded-lg text-cowry-dark bg-opacity-80 hover:bg-opacity-100 shadow-md"
+                class="block sm:flex md:block lg:flex py-2 px-4 lg:py-3 lg:px-6 rounded-md font-medium lg:font-semibold text-xs sm:text-sm lg:text-base bg-cowry-light text-cowry-dark shadow-md"
+                type="button"
+              >
+                Start Investing
+              </button>
+            </form>
+
+            <form
+              class="fl ex flex-col hidden lg:flex-row space-x-0 lg:space-x-2 relative bg-cowry-light bg-opacity-40 rounded-lg items-stretch w-full p-0 lg:p-1"
+            >
+              <input
+                type="email"
+                class="block lg:inline-block py-2 px-3 sm:py-2.5 sm:px-4 w-auto bg-transparent text-cowry-light placeholder-cowry-light placeholder-opacity-70 font-medium text-opacity-90 focus:text-opacity-100 outline-none"
+                placeholder="Your email"
+              />
+
+              <button
+                class="py-2 px-3 sm:py-2.5 lg:px-4 block lg:flex flex-auto w-full font-semibold text-xs sm:text-sm bg-cowry-light rounded-lg text-cowry-dark bg-opacity-80 hover:bg-opacity-100 shadow-md"
                 type="button"
               >
                 Start Investing
