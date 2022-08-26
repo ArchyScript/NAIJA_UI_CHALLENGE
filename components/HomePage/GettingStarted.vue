@@ -1,14 +1,20 @@
 <template>
-  <section id="hero" class="w-full h-full pb-48">
-    <div class="grid grid-cols-2 gap-x-20 xl:gap-x-24 h-full container mx-auto">
-      <div class="w-full space-y-20 xl:space-y-24">
-        <div class="w-full p-6">
-          <h3 class="text-5xl text-cowry-dark font-semibold mb-4">
+  <section id="hero" class="w-full h-full pb-24 sm:pb-28 md:pb-32">
+    <div
+      class="grid grid-cols-2 space-y-6 sm:space-y-8 md:space-y-0 md:gap-x-14 lg:gap-x-20 xl:gap-x-24 h-full px-4 sm:px-6 md:px-8 container mx-auto"
+    >
+      <div
+        class="w-full col-span-2 md:col-span-1 space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-20 xl:space-y-24"
+      >
+        <div class="w-full p-4 sm:px-6">
+          <h3
+            class="text-2xl sm:text-3xl lg:text-5xl text-cowry-dark font-semibold mb-2 md:mb-3 lg:mb-4"
+          >
             Get financial freedom
           </h3>
 
           <span
-            class="block text-lg text-cowry-dark text-opacity-60 font-medium"
+            class="block text-xs sm:text-sm md:text-base text-cowry-dark text-opacity-60 font-medium"
           >
             Plan towards your dream home, fund your kid's education, travel the
             world, all in one app.
@@ -20,7 +26,9 @@
         </div>
       </div>
 
-      <div class="w-full space-y-20 xl:space-y-24">
+      <div
+        class="w-full col-span-2 md:col-span-1 space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-20 xl:space-y-24"
+      >
         <div v-for="card_object in right_card_objects" :key="card_object.title">
           <BaseGetStartedCard :card_object="card_object" />
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full text-xs bg-cowry-main text-center py-1.5">
+  <div class="w-full hidden md:block text-xs bg-cowry-main text-center py-1.5">
     <a
       href="https://cowrywise.com/opes-diary"
       target="_blank"

@@ -1,13 +1,15 @@
 <template>
-  <section class="relative w-full py-12 pb-24 bg-cowry-main">
+  <section class="relative w-full pt-12 pb-24 bg-cowry-main">
     <div class="container bg-cowry-main mx-auto">
-      <div class="w-full lg:w-1/2 p-6 space-y-4 mb-4">
-        <h3 class="text-5xl text-white font-semibold mb-4">
+      <div class="w-full sm:w-3/4 lg:w-1/2 p-6 space-y-4 mb-4">
+        <h3
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-semibold mb-4"
+        >
           Keeping your money safe is our business.
         </h3>
 
         <span
-          class="block text-lg text-cowry-light text-opacity-90 font-medium"
+          class="block text-sm sm:text-base lg:text-lg text-cowry-light text-opacity-90 font-medium"
         >
           Trust is our currency. We are committed to the security of your money
           and the protection of your account.
@@ -17,7 +19,7 @@
           <a
             href="https://cowrywise.com/security"
             target="_blank"
-            class="flex cursor-pointer items-center space-x-2 text-cowry-light text-sm py-2 px-3 uppercase text-opacity-80 hover:text-opacity-100 font-semibold"
+            class="flex cursor-pointer items-center space-x-2 text-cowry-light text-xs md:text-sm py-2 px-3 uppercase text-opacity-80 hover:text-opacity-100 font-semibold"
           >
             <span>
               Learn more
@@ -38,18 +40,20 @@
         </p>
       </div>
 
-      <section class="w-5/6 h-full p-6">
-        <div class="grid grid-cols-2 gap-16">
+      <section
+        class="sw-full sm:w-5/6 md:w-full lg:w-5/6 xl:w-3/4 h-full p-4 sm:p-6"
+      >
+        <div class="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-16">
           <div
             class="col-span-2 md:col-span-1"
             v-for="(security_measure, index) in security_measures"
             :key="`${security_measure.title}_${index}`"
           >
             <h4
-              class="flex items-center mb-3 text-2xl text-cowry-light font-semibold"
+              class="flex items-center mb-1 text-lg sm:text-xl lg:text-2xl text-cowry-light font-semibold"
             >
               <span
-                class="mr-10 relative bg-cowry-light shadow-lg h-4 w-4 z-10 rounded-sm"
+                class="mr-6 sm:mr-8 md:mr-10 relative bg-cowry-light shadow-lg h-3 sm:h-4 w-3 sm:w-4 z-10 rounded-sm"
               >
                 <span
                   class="absolute h-full w-full top-1 left-1 rounded-sm z-0 bg-cowry-dark bg-opacity-40"
@@ -61,7 +65,7 @@
             </h4>
 
             <p
-              class="ml-3 pl-10 pb-4 text-base text-opacity-80 break-words text-cowry-light font-normal"
+              class="ml-3 pl-6 sm:pl-8 md:pl-10 pb-4 text-sm sm:text-base text-opacity-80 break-words text-cowry-light font-normal"
             >
               {{ security_measure.description }}
             </p>
@@ -71,7 +75,7 @@
     </div>
 
     <div
-      class="flex opacity-30 z-10 w-2/5 h-full justify-end absolute bottom-0 right-0"
+      class="flex opacity-30 lg:opacity-40 z-10 w-2/5 h-full justify-end absolute bottom-0 right-0"
     >
       <img
         class="w-full h-full mt-14 object-right"

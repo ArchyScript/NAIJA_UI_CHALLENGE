@@ -1,12 +1,12 @@
 <template>
-  <section class="container mx-auto w-full px-6 h-auto py-20">
-    <div class="grid grid-cols-4 pb-16">
+  <section class="container mx-auto w-full px-6 h-auto py-10 md:py-16">
+    <div class="grid grid-cols-4 gap-x-4 gap-y-8 pb-16">
       <div
-        class="col-span-1"
+        class="col-span-4 sm:col-span-2 md:col-span-1"
         v-for="footer_nav_link in footer_nav_links"
         :key="footer_nav_link.title"
       >
-        <h4 class="text-cowry-dark font-semibold text-lg mb-5">
+        <h4 class="text-cowry-dark font-semibold text-base md:text-lg mb-5">
           {{ footer_nav_link.title }}
         </h4>
 
@@ -26,8 +26,8 @@
       </div>
     </div>
 
-    <div class="pt-8 border-t">
-      <div class="mb-16 flex space-x-6">
+    <div class="pt-4 sm:pt-6 md:pt-8 border-t">
+      <div class="mb-16 flex space-x-4 sm:space-x-5">
         <a
           v-for="social in socials"
           :key="social.title"
@@ -106,7 +106,9 @@
         </a>
       </div>
 
-      <div class="flex justify-between items-center">
+      <div
+        class="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 md:items-center"
+      >
         <div class="flex flex-col space-y-2">
           <span class="space-x-2">
             <span class="text-xs text-cowry-dark text-opacity-70 uppercase">
@@ -127,33 +129,35 @@
           </span>
         </div>
 
-        <div
-          class="flex space-x-4 items-center shadow-lg py-2 px-4 border rounded-xl"
-        >
-          <img
-            class="h-8 w-8 inline-flex"
-            :src="require('~/assets/img/sec.png')"
-            alt=""
-          />
+        <div class="mt-4 md:mt-0">
+          <div
+            class="flex w-max space-x-4 items-center shadow-sm md:shadow-md xl:shadow-lg py-2 px-4 border rounded-xl"
+          >
+            <img
+              class="h-6 w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 inline-flex"
+              :src="require('~/assets/img/sec.png')"
+              alt=""
+            />
 
-          <span class="flex flex-col space-y-1">
-            <span
-              class="block text-xl font-semibold text-cowry-dark text-opacity-80"
-            >
-              Licensed by the SEC
-            </span>
+            <span class="flex self-start flex-col md:space-y-1">
+              <span
+                class="block text-base md:text-lg lg:text-xl font-semibold text-cowry-dark text-opacity-80"
+              >
+                Licensed by the SEC
+              </span>
 
-            <span
-              class="block text-cowry-dark text-opacity-60 font-thin text-xs"
-            >
-              Fund Manager
+              <span
+                class="block text-cowry-dark text-opacity-60 font-thin text-xs"
+              >
+                Fund Manager
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
 
       <div
-        class="flex flex-col text-sm space-y-4 text-cowry-dark text-opacity-70 mt-16"
+        class="flex flex-col text-xs md:text-sm space-y-3 sm:space-y-4 text-cowry-dark text-opacity-70 mt-16"
       >
         <p>
           Cowrywise Financial Technology Limited (“Cowrywise”) is a fund manager

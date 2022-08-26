@@ -2,25 +2,25 @@
   <nav
     id="navbar"
     :class="{ scrolled: !scrollShadowBoolean }"
-    class="w-full bg-white z-40 top-0 mb-4 py-1"
+    class="w-full bg-cowry-light z-40 top-0 mb-4 py-2 md:py-1.5 lg:py-2 xl:py-2.5"
   >
     <div
-      class="w-full container px-4 lg:px-6 mx-auto flex justify-between items-center"
+      class="w-full container px-4 sm:px-8 md:px-4 lg:px-6 mx-auto flex justify-between items-center"
     >
       <div
-        class="w-full flex flex-1 relative px-4 mx-auto items-center justify-between py-3 space-x-8"
+        class="w-full flex flex-1 relative md:pr-4 mx-auto items-center justify-between py-3 space-x-4 lg:space-x-8"
       >
         <div class="flex-shrink-0 flex items-center">
           <img
             :src="require('~/assets/img/cowrywise-full-logo.png')"
-            class="h-4 sm:h-5 lg:h-6 xl:h-7"
+            class="h-4 sm:h-6 xl:h-7"
             alt="Cowrywise Logo"
           />
         </div>
 
-        <div class="flex-1 px-6">
+        <div class="hidden md:flex flex-1 px-2 lg:px-6">
           <ul
-            class="w-full h-auto flex items-center space-x-2 pb-4 lg:pb-0 lg:flex-row origin-top duration-300 space- y-3 lg:space-y-0"
+            class="w-full h-auto flex items-center space-x-2 pb -4 lg:pb-0 lg:flex-row origin-top duration-300 space- y-3 lg:space-y-0"
           >
             <li
               class="relative flex-col"
@@ -152,7 +152,7 @@
               <a
                 href="https://cowrywise.com/blog/"
                 target="_blank"
-                class="px-4 py-2 text-cowry-dark text-opacity-60 hover:text-opacity-100 font-normal text-sm xl:text-base cursor-pointer"
+                class="px-3 py-2 lg:px-4 text-cowry-dark text-opacity-60 hover:text-opacity-100 font-normal text-sm xl:text-base cursor-pointer"
               >
                 Learn
               </a>
@@ -161,21 +161,33 @@
         </div>
       </div>
 
-      <div class="space-x-1 flex items-center justify-center">
+      <div class="space-x-1 items-center justify-center hidden md:flex">
         <nuxt-link
           to="/auth/login"
-          class="py-1.5 px-3 md:py-2.5 md:px-4 font-semibold text-sm text-cowry-main text-opacity-80 hover:text-opacity-100"
+          class="py-2 px-3 lg:py-2.5 lg:px-4 font-semibold text-sm text-cowry-main text-opacity-80 hover:text-opacity-100"
         >
           Log In
         </nuxt-link>
 
         <nuxt-link
           to="/auth/signup"
-          class="py-1.5 px-3 md:py-2.5 md:px-4 font-semibold text-sm bg-cowry-main text-cowry-light bg-opacity-70 hover:bg-opacity-90 shadow-lg rounded-lg"
+          class="py-2 px-3 lg:py-2.5 lg:px-4 font-semibold text-sm bg-cowry-main text-cowry-light bg-opacity-70 hover:bg-opacity-90 shadow-lg rounded-lg"
         >
           Sign Up For Free
         </nuxt-link>
       </div>
+
+      <span class="flex md:hidden h-4 sm:h-5 cursor-pointer">
+        <svg
+          class="h-full w-full"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+        >
+          <path
+            d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"
+          />
+        </svg>
+      </span>
     </div>
   </nav>
 </template>
@@ -183,7 +195,7 @@
 <script lang="ts">
 import { onBeforeMount, ref } from 'vue'
 export default {
-  name: 'BaseNavbar',
+  name: 'BaseNavbar  ',
   setup() {
     const open = ref(false)
     const scrollShadowBoolean = ref(true)

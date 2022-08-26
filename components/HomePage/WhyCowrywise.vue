@@ -1,12 +1,17 @@
 <template>
   <section class="container w-full h-auto py-20 pb-40">
-    <div class="p-6 mb-12 space-y-6">
-      <h3 class="text-cowry-dark uppercase font-semibold mb-4">
-        WHY COWRYWISE ?
+    <div
+      class="p-4 mb-4 sm:mb-6 md:mb-10 lg:bottom-12 space-y-2 sm:space-y-4 md:space-y-4"
+    >
+      <h3
+        class="text-cowry-dark text-sm md:text-base uppercase font-semibold mb-4"
+      >
+        WHY COWRYWISE?
       </h3>
-      <transition class="">
+
+      <transition>
         <span
-          class="text-cowry-dark text-opacity-70 space-x-4 text-5xl flex items-center font-bold"
+          class="text-cowry-dark text-opacity-70 space-x-0 sm:space-x-4 text-2xl flex-col sm:flex-row sm:text-3xl md:text-4xl flex sm:items-center font-bold"
         >
           <span class="bounce-enter-active text-cowry-dark text-opacity-70">
             {{ current_q_and_a.question }}
@@ -20,22 +25,28 @@
     </div>
 
     <div class="p-6">
-      <div class="grid grid-cols-2 gap-x-16 gap-y-36">
+      <div
+        class="grid grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-8 sm:space-y-10 md:space-y-0"
+      >
         <div
-          class="col-span-2 md:col-span-1 shadow-xl rounded-lg p-10"
+          class="col-span-2 md:col-span-1 shadow-md rounded-lg p-3 sm:p-4 md:p-8 lg:p-10"
           v-for="(app_download, index) in app_downloads"
           :key="`${app_download.name}_${index}`"
         >
-          <div class="flex justify-between items-center pb-6">
+          <div class="flex justify-between items-center pb-3 sm:pb-4 md:pb-6">
             <span class="flex items-center">
               <span
-                class="flex items-center text-cowry-dark text-opacity-70 text-4xl font-semibold"
+                class="flex items-center text-cowry-dark text-opacity-70 text-2xl sm:text-3xl md:text-4xl font-semibold"
               >
                 {{ app_download.rating }}/
-                <span class="text-cowry-gray text-xl"> 5 </span>
+                <span class="text-cowry-gray text-sm sm:text-base lg:text-lg">
+                  5
+                </span>
               </span>
 
-              <span class="inline-flex space-x-2 hid den ml-2 py-1.5 px-3">
+              <span
+                class="inline-flex space-x-1 sm:space-x-2 ml-1 sm:ml-2 py-0.5 sm:py-1.5 px-2 sm:px-3"
+              >
                 <span
                   class="h-4 w-4 text-yellow-600"
                   v-for="x in app_download.rating"
@@ -55,10 +66,12 @@
             </span>
 
             <a
-              class="flex items-center space-x-3 py-1 px-4 rounded-md bg-cowry-dark"
+              class="flex items-center space-x-3 py-1 px-2 sm:py-1 sm:px-4 rounded-md bg-cowry-dark"
               href="https://cwry.se/app"
             >
-              <span class="h-6 inline-flex text-white">
+              <span
+                class="h-5 md:h-7 lg:h-6 md:p-1 lg:p-0 inline-flex text-white"
+              >
                 <svg
                   v-if="app_download.name === 'Google'"
                   class="h-full fill-current"
@@ -82,13 +95,14 @@
                 </svg>
               </span>
 
-              <span class="flex flex-col">
+              <span class="hidden sm:flex md:hidden lg:flex flex-col">
                 <span
                   v-if="app_download.name === 'Google'"
                   class="block text-xs font-thin text-cowry-light text-opacity-70"
                 >
                   Get it on
                 </span>
+
                 <span
                   v-if="app_download.name === 'Apple'"
                   class="block text-xs font-thin text-cowry-light text-opacity-70"
@@ -110,12 +124,14 @@
           </h4>
 
           <p
-            class="mb-2 text-base text-cowry-dark break-words text-opacity-80 font-medium"
+            class="mb-2 text-xs sm:text-sm md:text-base text-cowry-dark break-words text-opacity-80 font-medium"
           >
             {{ app_download.review }}
           </p>
 
-          <p class="flex justify-between w-auto mt-6">
+          <p
+            class="flex justify-between w-auto mt-3 sm:mt-4 md:mt-6 mb-2 sm:mb-3 md:mb-0"
+          >
             <a
               :href="app_download.link"
               class="cursor-pointer flex items-center space-x-2 text-cowry-main uppercase rounded-md text-xs pr-3 pl-1 font-medium"
@@ -124,7 +140,7 @@
                 download now
               </span>
 
-              <span class="h-3 font-thin">
+              <span class="h-2 sm:h-3 font-thin">
                 <svg
                   class="h-full fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -140,27 +156,27 @@
         </div>
 
         <div
-          class="col-span-full grid items-center grid-cols-2 gap-20 bg-cowry-main shadow-2xl p-16 mt-20 rounded-2xl shadow-cowry-main"
+          class="col-span-full grid items-center grid-cols-2 gap-y-7 sm:gap-y-10 md:gap-y-0 md:gap-x-12 lg:gap-x-14 xl:gap-20 bg-cowry-main shadow-2xl p-3 sm:p-10 md:p-14 lg:p-20 mt-20 rounded-lg sm:rounded-xl md:rounded-2xl shadow-cowry-main"
         >
           <h4
-            class="text-4xl flex flex-col justify-center space-y-3 text-cowry-light font-semibold col-span-2 md:col-span-1"
+            class="text-2xl sm:text-3xl md:text-4xl flex flex-col justify-center space-y-3 text-cowry-light font-semibold col-span-2 md:col-span-1"
           >
             <span class="block">Sign up for free.</span>
             <span class="block">Start investing today. </span>
           </h4>
 
-          <div class="col-span-2 md:col-span-1">
+          <div class="col-span-2 md:col-span-1 sm:w-1/2 md:w-full">
             <form
-              class="flex space-x-2 relative bg-cowry-light bg-opacity-40 rounded-lg flex-wrap items-stretch w-full p-1"
+              class="flex flex-col lg:flex-row space-x-0 lg:space-x-2 relative bg-cowry-light bg-opacity-40 rounded-lg items-stretch w-full p-0 lg:p-1"
             >
               <input
                 type="email"
-                class="relative flex-auto py-1.5 px-3 md:py-2 md:px-4 bg-transparent text-cowry-light placeholder-cowry-dark placeholder-opacity-70 font-medium text-opacity-90 focus:text-opacity-100 outline-none"
+                class="block lg:flex py-2 px-3 sm:py-2.5 sm:px-4 w-auto bg-transparent text-cowry-light placeholder-cowry-light placeholder-opacity-70 font-medium text-opacity-90 focus:text-opacity-100 outline-none"
                 placeholder="Your email"
               />
 
               <button
-                class="py-1.5 px-3 md:py-2 md:px-4 font-medium md:font-semibold bg-cowry-light rounded-lg text-cowry-dark bg-opacity-80 hover:bg-opacity-100 shadow-md"
+                class="py-2 px-3 sm:py-2.5 lg:px-4 block lg:inline-flex flex-auto w-full sm:w-auto font-semibold text-xs sm:text-sm bg-cowry-light rounded-lg text-cowry-dark bg-opacity-80 hover:bg-opacity-100 shadow-md"
                 type="button"
               >
                 Start Investing
@@ -240,7 +256,7 @@ export default {
           current_q_and_a_index = 0
       }
 
-      setInterval(displayHello, 2500)
+      setInterval(displayHello, 1800)
     }
 
     onBeforeMount(() => toggleQuestionsAndAnswers())

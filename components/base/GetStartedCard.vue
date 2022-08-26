@@ -1,13 +1,13 @@
 <template>
   <div :class="card_object.bg_color" class="rounded-3xl">
-    <div class="p-16 pb-4 space-y-2">
+    <div class="p-4 sm:p-5 md:p-6 lg:p-12 xl:p-16 space-y-2">
       <h5
         :class="
           card_object.bg_contrast === 'light'
             ? 'text-cowry-dark text-opacity-60 '
             : 'text-cowry-light text-opacity-90'
         "
-        class="block text-2xl capitalize font-medium pb-2"
+        class="block text-base sm:text-lg lg:text-xl capitalize font-medium pb-1 sm:pb-2"
       >
         {{ card_object.title }}
       </h5>
@@ -18,7 +18,7 @@
             ? 'text-cowry-dark'
             : ' text-cowry-light text-opacity-90'
         "
-        class="text-3xl font-semibold pb-1"
+        class="text-2xl sm:text-3xl lg:text-5xl font-semibold pb-1"
       >
         {{ card_object.description }}
       </h3>
@@ -35,7 +35,7 @@
         {{ card_object.details }}
       </p>
 
-      <p class="flex justify-between w-auto py-2">
+      <p class="flex justify-between w-auto py-1 sm:py-2">
         <a
           :href="card_object.link"
           target="_blank"
@@ -50,7 +50,7 @@
             {{ card_object.link_text }}
           </span>
 
-          <span class="h-3">
+          <span class="h-2 sm:h-3">
             <svg
               class="h-full fill-current"
               xmlns="http://www.w3.org/2000/svg"
